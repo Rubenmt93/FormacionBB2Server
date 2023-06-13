@@ -27,7 +27,7 @@ public class UserModel {
 
     @JsonManagedReference
 
-  @OneToMany( targetEntity = ItemModel.class,
+    @OneToMany( targetEntity = ItemModel.class,
                 mappedBy="creator",
                 cascade = CascadeType.ALL,
                 fetch = FetchType.LAZY)
@@ -35,4 +35,10 @@ public class UserModel {
     private List<ItemModel> items;
 
     private List<RolUserEnum> rol;
+    @OneToMany( targetEntity = DiscontinuedReportModel.class,
+                mappedBy="user",
+                cascade = CascadeType.ALL,
+                fetch = FetchType.LAZY)
+    private List<DiscontinuedReportModel> listDiscontinued;
+
 }

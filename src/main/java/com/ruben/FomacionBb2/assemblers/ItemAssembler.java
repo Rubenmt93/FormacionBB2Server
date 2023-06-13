@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAssembler {
-
+    UserAssembler userAssembler = new UserAssembler();
+    SupplierAssembler supplierAssembler = new SupplierAssembler();
+    PriceReductionAssembler priceReductionAssembler = new PriceReductionAssembler();
     public ItemDTO itemModel2DTO(ItemModel itemModel){
         ItemDTO itemDTO= new ItemDTO();
         itemDTO.setIdItem( itemModel.getIdItem());
@@ -22,11 +24,10 @@ public class ItemAssembler {
         itemDTO.setDescriptionItem( itemModel.getDescriptionItem());
         itemDTO.setPrice( itemModel.getPrice());
         itemDTO.setCreationDate(itemModel.getCreationDate());
-        itemDTO.setSuppliers(supplierModel2DTO(itemModel.getSuppliers()));
+        itemDTO.setSuppliers(supplierAssembler.model2DTO(itemModel.getSuppliers()));
         itemDTO.setState(itemModel.getState());
-        itemDTO.setCreator(userModel2DTO(itemModel.getCreator()));
-
-        itemDTO.setPriceReductions(priceReductionModel2DTO(itemModel.getPriceReductions()));
+        itemDTO.setCreator(userAssembler.model2DTO(itemModel.getCreator()));
+        itemDTO.setPriceReductions(priceReductionAssembler.model2DTO(itemModel.getPriceReductions()));
         return itemDTO;
     }
 
@@ -38,51 +39,4 @@ public class ItemAssembler {
         return listItemDto;
     }
 
-    public List<SupplierDTO> supplierModel2DTO(List<SupplierModel> listSupplierModel){
-        List<SupplierDTO> a = new ArrayList<SupplierDTO>();
-        for (SupplierModel supplierModel: listSupplierModel) {
-            a.add(supplierModel2DTO(supplierModel));
-        }
-        return a;
-    }
-
-
-    public SupplierDTO supplierModel2DTO(SupplierModel supplierModel){
-
-        SupplierDTO supplierDTO = new SupplierDTO();
-        supplierDTO.setIdSupplier(supplierModel.getIdSupplier());
-        supplierDTO.setCountry(supplierModel.getCountry());
-        supplierDTO.setName(supplierModel.getName());
-        return supplierDTO;
-    }
-
-    public UserDTO userModel2DTO(UserModel userModel){
-        UserDTO userDTO = new UserDTO();
-
-        userDTO.setIdUser(userModel.getIdUser());
-        userDTO.setName(userModel.getName());
-        userDTO.setSurname(userModel.getSurname());
-        userDTO.setEmail(userModel.getEmail());
-        userDTO.setRol(userModel.getRol());
-        return userDTO;
-    }
-
-    public PriceReductionDTO priceReductionModel2DTO(PriceReductionModel priceReductionModel){
-        PriceReductionDTO priceReductionDTO = new PriceReductionDTO();
-
-        priceReductionDTO.setIdPriceReduction(priceReductionModel.getIdPriceReduction());
-        priceReductionDTO.setReducedPrice(priceReductionModel.getReducedPrice());
-        priceReductionDTO.setStartDate(priceReductionModel.getStartDate());
-        priceReductionDTO.setEndDate(priceReductionModel.getEndDate());
-        priceReductionDTO.setReductionType(priceReductionModel.getReductionType());
-
-        return priceReductionDTO;
-    }
-    public List<PriceReductionDTO> priceReductionModel2DTO(List<PriceReductionModel> priceReductionModel){
-        List<PriceReductionDTO> a = new ArrayList<PriceReductionDTO>();
-        for (PriceReductionModel b: priceReductionModel) {
-            a.add(priceReductionModel2DTO(b));
-        }
-        return a;
-    }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @Service
 public class UserService {
-@Autowired
+    @Autowired
     UserRepository userRepository;
 
     public ArrayList<UserModel> findAll(){

@@ -1,9 +1,7 @@
 package com.ruben.FomacionBb2.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.ruben.FomacionBb2.enums.ItemStateEnum;
-import com.ruben.FomacionBb2.services.PriceReductionService;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -55,4 +53,6 @@ public class ItemModel implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "id_priceReduction")
     )
     private List<PriceReductionModel> priceReductions;
+    @OneToOne(mappedBy = "itemDiscontinued")
+    private DiscontinuedReportModel discontinuedReport;
 }

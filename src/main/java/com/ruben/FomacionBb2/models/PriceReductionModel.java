@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.ruben.FomacionBb2.enums.TypeReductionEnum;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 import java.util.List;
