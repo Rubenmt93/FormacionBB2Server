@@ -20,9 +20,16 @@ public class ItemDTO {
         private Date creationDate;
 
 
-        private List<SupplierModel> suppliers;
+        private List<SupplierDTO> suppliers;
 
         private ItemStateEnum state ;
+
+
+    private List<PriceReductionDTO> priceReductions;
+
+
+
+
     public ItemDTO() {
     }
 
@@ -74,11 +81,11 @@ public class ItemDTO {
         this.creationDate = creationDate;
     }
 
-    public List<SupplierModel> getSuppliers() {
+    public List<SupplierDTO> getSuppliers() {
         return suppliers;
     }
 
-    public void setSuppliers(List<SupplierModel> suppliers) {
+    public void setSuppliers(List<SupplierDTO> suppliers) {
         this.suppliers = suppliers;
     }
 
@@ -89,5 +96,12 @@ public class ItemDTO {
     public void setState(ItemStateEnum state) {
         this.state = state;
     }
+    public List<PriceReductionDTO> getPriceReductions() {
+        return priceReductions;
+    }
+
+    public void setPriceReductions(List<PriceReductionDTO> priceReductions) {
+        this.priceReductions = priceReductions;
+    }
+
 }
-//TODO: los descuento aqui

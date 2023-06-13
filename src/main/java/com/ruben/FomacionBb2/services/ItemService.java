@@ -16,11 +16,10 @@ public class ItemService {
 
     @Autowired
     ItemRepository itemRepository;
-
+    ItemAssembler itemAssembler = new ItemAssembler();
     public List<ItemDTO> findAll(){
-        ItemAssembler itemAssembler = new ItemAssembler();
         ArrayList<ItemModel> items = (ArrayList<ItemModel>) itemRepository.findAll();
-        List<ItemDTO> listItemDTO = itemAssembler.Model2DTO(items);
+        List<ItemDTO> listItemDTO = itemAssembler.itemModel2DTO(items);
         return listItemDTO;
     }
     public ItemModel makePersistent(ItemModel item){
