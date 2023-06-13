@@ -11,3 +11,7 @@ public class FomacionBb2Application {
 	}
 
 }
+//TODO: Login
+
+
+//TODO: Pensar algo para los reportes

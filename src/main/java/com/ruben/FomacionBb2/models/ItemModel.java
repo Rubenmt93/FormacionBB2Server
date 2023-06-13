@@ -46,5 +46,5 @@ public class ItemModel implements Serializable {
     private List<SupplierModel> suppliers;
 
 
-    private ItemStateEnum state = ItemStateEnum.Descontinuado;
+    private ItemStateEnum state = ItemStateEnum.Activo;
 }

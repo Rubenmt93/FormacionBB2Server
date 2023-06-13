@@ -27,7 +27,7 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public List<ItemModel> findAllOrderByState(String order) {
+    public List<ItemModel> findAllOrderByState(@org.jetbrains.annotations.NotNull String order) {
 
         if( order.equals("ASC")){
             return itemRepository.findAllByOrderByStateAsc();
