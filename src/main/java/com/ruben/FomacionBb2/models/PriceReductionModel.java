@@ -1,5 +1,6 @@
 package com.ruben.FomacionBb2.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.ruben.FomacionBb2.enums.TypeReductionEnum;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,12 +24,13 @@ public class PriceReductionModel {
     private Date endDate;
 
     @Column(nullable = false)
-    private Double ReducedPrice;
+    private Double reducedPrice;
 
     @Column(nullable = false)
     private TypeReductionEnum reductionType;
-     //TODO: relacion many to many
-   // private List<ItemModel> itemReduced;
+    @ManyToMany(mappedBy = "priceReductions")
+    @JsonBackReference
+    private List<ItemModel> itemsReduced;
 
 
 

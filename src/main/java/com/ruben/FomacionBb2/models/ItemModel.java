@@ -1,7 +1,9 @@
 package com.ruben.FomacionBb2.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.ruben.FomacionBb2.enums.ItemStateEnum;
+import com.ruben.FomacionBb2.services.PriceReductionService;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -40,11 +42,17 @@ public class ItemModel implements Serializable {
     @ManyToMany()
     @JoinTable(
             name = "Item_Supplier",
-            joinColumns = @JoinColumn(name = "id_user"),
+            joinColumns = @JoinColumn(name = "id_item"),
             inverseJoinColumns = @JoinColumn(name = "id_supplier")
     )
     private List<SupplierModel> suppliers;
-
-
     private ItemStateEnum state = ItemStateEnum.Activo;
+
+    @ManyToMany()
+    @JoinTable(
+            name = "item-priceReduction",
+            joinColumns = @JoinColumn(name = "id_item"),
+            inverseJoinColumns = @JoinColumn(name = "id_priceReduction")
+    )
+    private List<PriceReductionModel> priceReductions;
 }

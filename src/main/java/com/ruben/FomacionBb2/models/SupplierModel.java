@@ -21,7 +21,6 @@ public class SupplierModel {
     @Column(nullable = false)
     private String country;
     @ManyToMany (mappedBy = "suppliers")
-
     @JsonBackReference
     private List<ItemModel> itemsSupplied;
 }

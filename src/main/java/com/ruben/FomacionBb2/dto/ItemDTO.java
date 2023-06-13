@@ -90,3 +90,4 @@ public class ItemDTO {
         this.state = state;
     }
 }
+//TODO: los descuento aqui
