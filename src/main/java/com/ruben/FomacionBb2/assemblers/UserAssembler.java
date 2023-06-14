@@ -9,7 +9,6 @@ public class UserAssembler {
 
         userDTO.setIdUser(userModel.getIdUser());
         userDTO.setName(userModel.getName());
-        userDTO.setSurname(userModel.getSurname());
         userDTO.setEmail(userModel.getEmail());
         userDTO.setRol(userModel.getRol());
         return userDTO;
