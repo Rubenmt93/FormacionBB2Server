@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/priceReduction")
+
 public class PriceReductionController {
     @Autowired
     PriceReductionService priceReductionService;

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -36,5 +37,16 @@ public class ItemService {
         }
     }
 
+    public Optional<ItemDTO> findByIdItem(Long id){
+        Optional<ItemModel> itemModel= itemRepository.findById(id);
+        ItemDTO  a=  new  ItemDTO();
+        if(itemModel.isPresent()){
+            a=itemAssembler.itemModel2DTO(itemModel.get());
+            return Optional.of(a);
+        }
+            return Optional.empty();
 
+
+
+    }
 }

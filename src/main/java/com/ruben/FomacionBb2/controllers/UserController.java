@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/usuario")
+@CrossOrigin()
 public class UserController {
     @Autowired
     UserService userService;

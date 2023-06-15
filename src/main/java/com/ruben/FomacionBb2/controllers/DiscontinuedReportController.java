@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/discontinuedReport")
+
 public class DiscontinuedReportController {
     @Autowired
     DiscontinuedReportService discontinuedReportService;

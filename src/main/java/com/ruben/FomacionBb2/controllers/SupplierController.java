@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/supplier")
+
 public class SupplierController {
     @Autowired
     SupplierService supplierService;
