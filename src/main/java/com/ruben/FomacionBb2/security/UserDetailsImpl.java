@@ -1,5 +1,6 @@
 package com.ruben.FomacionBb2.security;
 
+import com.ruben.FomacionBb2.enums.RolUserEnum;
 import com.ruben.FomacionBb2.models.UserModel;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -49,5 +50,18 @@ public class UserDetailsImpl implements UserDetails{
 
     public String getNombre(){
         return usuario.getName();
+    }
+
+    public String getRoles(){
+
+        String roles= "";
+        for(RolUserEnum a: usuario.getRol()){
+            roles+= a.toString()+" ";
+        }
+        return roles;
+    }
+
+    public Long getId(){
+        return usuario.getIdUser();
     }
 }

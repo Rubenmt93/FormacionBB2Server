@@ -36,27 +36,13 @@ public class WebSecurityConfig  {
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
         jwtAuthenticationFilter.setFilterProcessesUrl("/auth/login");
 
-//        return http.cors().and()
-//                .csrf().disable()
-//                .authorizeHttpRequests()
-//                .requestMatchers("/h2-console")
-//                .permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy((SessionCreationPolicy.STATELESS))
-//                .and()
-//               x .addFilter(jwtAuthenticationFilter)
-//               .addFilterBefore(jwtAuthorizationFilter,UsernamePasswordAuthenticationFilter.class)
-//                .build();
-
                 http.cors().and().csrf().disable()
                     .authorizeHttpRequests(request -> request
                         .requestMatchers(new AntPathRequestMatcher("/auth/login")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/items")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/h2-console/*")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/items/*")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/api/items/*")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/items/filtrar/*")).permitAll()
                         .anyRequest().authenticated());
                 return http.sessionManagement()
                         .sessionCreationPolicy((SessionCreationPolicy.STATELESS))

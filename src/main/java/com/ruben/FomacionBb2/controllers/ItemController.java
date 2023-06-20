@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/items")
-@CrossOrigin()
+        @CrossOrigin()
 public class ItemController {
 
     @Autowired
@@ -44,5 +44,8 @@ public class ItemController {
     public Optional<ItemDTO> findById(@PathVariable("id") Long id){
         return this.itemService.findByIdItem(id);
     }
-
+    @GetMapping("/filtrar/{estado}")
+    public List<ItemDTO> findById(@PathVariable("estado") String state){
+        return this.itemService.findByState(state);
+    }
 }

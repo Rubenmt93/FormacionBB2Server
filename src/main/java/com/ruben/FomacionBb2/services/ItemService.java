@@ -1,6 +1,7 @@
 package com.ruben.FomacionBb2.services;
 
 import com.ruben.FomacionBb2.dto.ItemDTO;
+import com.ruben.FomacionBb2.enums.ItemStateEnum;
 import com.ruben.FomacionBb2.models.ItemModel;
 import com.ruben.FomacionBb2.repositories.ItemRepository;
 import com.ruben.FomacionBb2.assemblers.ItemAssembler;
@@ -27,26 +28,21 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public List<ItemModel> findAllOrderByState(@org.jetbrains.annotations.NotNull String order) {
 
-        if( order.equals("ASC")){
-            return itemRepository.findAllByOrderByStateAsc();
-        } else {
-            return itemRepository.findAllByOrderByStateDesc();
-
-        }
-    }
 
     public Optional<ItemDTO> findByIdItem(Long id){
         Optional<ItemModel> itemModel= itemRepository.findById(id);
         ItemDTO  a=  new  ItemDTO();
         if(itemModel.isPresent()){
             a=itemAssembler.itemModel2DTO(itemModel.get());
-            return Optional.of(a);
-        }
+            return Optional.of(a);        }
             return Optional.empty();
+    }
+    public List<ItemDTO> findByState(String state){
 
-
-
+        ItemStateEnum a = ItemStateEnum.valueOf(state);
+        ArrayList<ItemModel> items = (ArrayList<ItemModel>) itemRepository.findByState(a);
+        List<ItemDTO> listItemDTO = itemAssembler.itemModel2DTO(items);
+        return listItemDTO;
     }
 }
