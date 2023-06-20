@@ -15,7 +15,7 @@ public class PriceReductionDTO {
     private Date endDate;
     private Double reducedPrice;
     private TypeReductionEnum reductionType;
-    private List<ItemDTO> itemsReduced;
+    private List<Long> itemsReduced;
 
     public Long getIdPriceReduction() {
         return idPriceReduction;
@@ -57,11 +57,11 @@ public class PriceReductionDTO {
         this.reductionType = reductionType;
     }
 
-    public List<ItemDTO> getItemsReduced() {
+    public List<Long> getItemsReduced() {
         return itemsReduced;
     }
 
-    public void setItemsReduced(List<ItemDTO> itemsReduced) {
+    public void setItemsReduced(List<Long> itemsReduced) {
         this.itemsReduced = itemsReduced;
     }
 }

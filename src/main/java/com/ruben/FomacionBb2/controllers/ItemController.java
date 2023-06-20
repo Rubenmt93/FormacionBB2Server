@@ -48,4 +48,8 @@ public class ItemController {
     public List<ItemDTO> findById(@PathVariable("estado") String state){
         return this.itemService.findByState(state);
     }
+    @GetMapping("/eliminar/{id}")
+    public Long deleteById(@PathVariable("id") Long id){
+        return this.itemService.deleteByidItem(id);
+    }
 }

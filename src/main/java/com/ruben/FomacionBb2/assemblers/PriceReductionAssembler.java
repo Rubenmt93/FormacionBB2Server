@@ -1,6 +1,7 @@
 package com.ruben.FomacionBb2.assemblers;
 
 import com.ruben.FomacionBb2.dto.PriceReductionDTO;
+import com.ruben.FomacionBb2.models.ItemModel;
 import com.ruben.FomacionBb2.models.PriceReductionModel;
 
 import java.util.ArrayList;
@@ -17,7 +18,11 @@ public class PriceReductionAssembler {
         priceReductionDTO.setStartDate(priceReductionModel.getStartDate());
         priceReductionDTO.setEndDate(priceReductionModel.getEndDate());
         priceReductionDTO.setReductionType(priceReductionModel.getReductionType());
-
+        List<Long> list =  new ArrayList<>();
+        for(ItemModel A: priceReductionModel.getItemsReduced()){
+            list.add(A.getIdItem());
+        }
+        priceReductionDTO.setItemsReduced(list);
         return priceReductionDTO;
     }
     public List<PriceReductionDTO> model2DTO(List<PriceReductionModel> priceReductionModel){

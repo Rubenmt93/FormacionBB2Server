@@ -45,4 +45,7 @@ public class ItemService {
         List<ItemDTO> listItemDTO = itemAssembler.itemModel2DTO(items);
         return listItemDTO;
     }
+    public Long deleteByidItem(Long id){
+        return itemRepository.removeByidItem(id);
+    }
 }
