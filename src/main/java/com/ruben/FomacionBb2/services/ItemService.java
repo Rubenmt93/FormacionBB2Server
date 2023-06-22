@@ -25,10 +25,7 @@ public class ItemService {
         return listItemDTO;
     }
     public ItemModel makePersistent(ItemModel item){
-        return itemRepository.save(item);
-    }
-
-
+        return itemRepository.save(item);    }
 
     public Optional<ItemDTO> findByIdItem(Long id){
         Optional<ItemModel> itemModel= itemRepository.findById(id);

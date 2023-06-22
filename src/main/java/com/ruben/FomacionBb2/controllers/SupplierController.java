@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("/api/supplier")
 
 public class SupplierController {
     @Autowired

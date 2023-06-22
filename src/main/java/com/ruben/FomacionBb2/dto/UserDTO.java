@@ -9,19 +9,27 @@ public class UserDTO {
 
     private Long idUser;
     private String name;
-    private String surname;
     private String email;
     private List<ItemDTO> items;
     private List<RolUserEnum> rol;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
 
     public UserDTO(){}
-    public UserDTO(Long idUser, String name, String surname, String email, List<RolUserEnum> rol) {
+    public UserDTO(Long idUser, String name, String email,String password, List<RolUserEnum> rol) {
         this.idUser = idUser;
         this.name = name;
-        this.surname = surname;
         this.email = email;
         this.rol = rol;
+        this.password = password;
     }
 
     public Long getIdUser() {
@@ -40,9 +48,7 @@ public class UserDTO {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
+
 
 
     public String getEmail() {

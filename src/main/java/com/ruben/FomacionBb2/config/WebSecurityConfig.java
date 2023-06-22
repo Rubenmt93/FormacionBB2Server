@@ -40,7 +40,9 @@ public class WebSecurityConfig  {
                     .authorizeHttpRequests(request -> request
                         .requestMatchers(new AntPathRequestMatcher("/auth/login")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/items")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/h2-console/*")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/h2-console/")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/console/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/items/filtrar/*")).permitAll()
                         .anyRequest().authenticated());
                 return http.sessionManagement()

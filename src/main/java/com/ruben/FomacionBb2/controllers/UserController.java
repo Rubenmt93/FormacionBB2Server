@@ -1,11 +1,14 @@
 package com.ruben.FomacionBb2.controllers;
 
+import com.ruben.FomacionBb2.dto.ItemDTO;
+import com.ruben.FomacionBb2.dto.UserDTO;
 import com.ruben.FomacionBb2.models.UserModel;
 import com.ruben.FomacionBb2.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/usuario")
@@ -18,16 +21,18 @@ public class UserController {
     public ArrayList<UserModel> findAll(){
         return userService.findAll();
     }
-
+    @GetMapping("/{id}")
+    public Optional<UserDTO> findById(@PathVariable("id") Long id){
+        return this.userService.findByIdUser(id);
+    }
     @PostMapping()
     public  UserModel save(@RequestBody UserModel user){
         return userService.makePersistent(user);
     }
+    @GetMapping("/eliminar/{id}")
+    public Long deleteById(@PathVariable("id") Long id){
+        return this.userService.deleteByidUser(id);
+    }
 
-//    @GetMapping("/personal")
-//    public ArrayList<UserModel> findPersonal(){
-//        ArrayList<UserModel> arrayList = userService.findPersonal();
-//        return arrayList;
-//    }
 
 }
