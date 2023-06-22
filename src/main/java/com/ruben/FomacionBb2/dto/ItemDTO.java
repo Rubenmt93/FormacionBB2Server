@@ -1,6 +1,7 @@
 package com.ruben.FomacionBb2.dto;
 
 import com.ruben.FomacionBb2.enums.ItemStateEnum;
+import com.ruben.FomacionBb2.models.DiscontinuedReportModel;
 import com.ruben.FomacionBb2.models.SupplierModel;
 
 
@@ -25,7 +26,9 @@ public class ItemDTO {
         private ItemStateEnum state ;
 
 
-    private List<PriceReductionDTO> priceReductions;
+        private List<PriceReductionDTO> priceReductions;
+
+        private DiscontinuedReportDTO discontinuedReport;
 
 
 
@@ -104,4 +107,11 @@ public class ItemDTO {
         this.priceReductions = priceReductions;
     }
 
+    public DiscontinuedReportDTO getDiscontinuedReport() {
+        return discontinuedReport;
+    }
+
+    public void setDiscontinuedReport(DiscontinuedReportDTO discontinuedReport) {
+        this.discontinuedReport = discontinuedReport;
+    }
 }
