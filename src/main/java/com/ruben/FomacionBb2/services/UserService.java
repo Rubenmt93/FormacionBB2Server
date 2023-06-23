@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,11 +19,13 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
     UserAssembler userAssembler= new UserAssembler();
-    public ArrayList<UserModel> findAll(){
-        return (ArrayList<UserModel>) userRepository.findAll();
+    public List<UserDTO> findAll(){
+        ArrayList<UserModel> listUserModel=(ArrayList<UserModel>) userRepository.findAll();
+        List<UserDTO> listUserDTO = userAssembler.model2DTO(listUserModel);
+        return listUserDTO;
     }
-    public UserModel makePersistent(UserModel user){
-        return userRepository.save(user);
+    public UserDTO makePersistent(UserModel user){
+        return userAssembler.model2DTO(userRepository.save(user));
     }
     public Optional<UserDTO> findByIdUser(Long id){
         Optional<UserModel> userModel= userRepository.findById(id);

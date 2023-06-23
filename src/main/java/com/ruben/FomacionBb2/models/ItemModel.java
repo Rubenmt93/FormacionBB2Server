@@ -53,6 +53,6 @@ public class ItemModel implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "id_priceReduction")
     )
     private List<PriceReductionModel> priceReductions;
-    @OneToOne(mappedBy = "itemDiscontinued")
+    @OneToOne(mappedBy = "itemDiscontinued",orphanRemoval = true)
     private DiscontinuedReportModel discontinuedReport;
 }

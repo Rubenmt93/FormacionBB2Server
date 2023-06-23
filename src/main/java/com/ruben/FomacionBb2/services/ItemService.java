@@ -45,4 +45,10 @@ public class ItemService {
     public Long deleteByidItem(Long id){
         return itemRepository.removeByidItem(id);
     }
+    public ArrayList<ItemDTO> findOrderedByPrice(){
+
+        ArrayList<ItemModel> items = (ArrayList<ItemModel>) itemRepository.personalFindOrderedByPrice();
+        ArrayList<ItemDTO> listItemDTO =(ArrayList<ItemDTO>) itemAssembler.itemModel2DTO(items);
+        return listItemDTO;
+    }
 }

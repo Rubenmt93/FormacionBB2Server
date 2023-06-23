@@ -22,6 +22,9 @@ public interface ItemRepository extends JpaRepository<ItemModel,Long> {
     public List<ItemModel> findAll();
 
     public Long removeByidItem(Long id);
+    @Query(value = "SELECT * FROM item ORDER BY price", nativeQuery = true)
+    List<ItemModel> personalFindOrderedByPrice();
+
 
 
 

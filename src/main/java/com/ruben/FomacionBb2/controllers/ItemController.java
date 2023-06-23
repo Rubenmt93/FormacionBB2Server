@@ -40,9 +40,13 @@ public class ItemController {
     public Optional<ItemDTO> findById(@PathVariable("id") Long id){
         return this.itemService.findByIdItem(id);
     }
-    @GetMapping("/filtrar/{estado}")
-    public List<ItemDTO> findById(@PathVariable("estado") String state){
-        return this.itemService.findByState(state);
+    @GetMapping("/filtrar/{param}")
+    public List<ItemDTO> findById(@PathVariable("param") String param){
+        if(param.equals("Price")){
+            return this.itemService.findOrderedByPrice();
+        }else {
+            return this.itemService.findByState(param);
+        }
     }
     @GetMapping("/eliminar/{id}")
     public Long deleteById(@PathVariable("id") Long id){

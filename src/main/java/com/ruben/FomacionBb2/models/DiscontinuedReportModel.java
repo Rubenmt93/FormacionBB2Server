@@ -21,7 +21,7 @@ public class DiscontinuedReportModel {
         @JoinColumn(name="id_user", nullable=false)
         private UserModel user;
 
-        @OneToOne()
+        @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "id_item", referencedColumnName = "idItem")
         private ItemModel itemDiscontinued;
 }
