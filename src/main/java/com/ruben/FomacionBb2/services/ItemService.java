@@ -51,4 +51,7 @@ public class ItemService {
         ArrayList<ItemDTO> listItemDTO =(ArrayList<ItemDTO>) itemAssembler.itemModel2DTO(items);
         return listItemDTO;
     }
+
+
+
 }

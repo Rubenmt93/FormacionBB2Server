@@ -39,7 +39,7 @@ public class ItemModel implements Serializable {
 
     @ManyToMany()
     @JoinTable(
-            name = "Item_Supplier",
+            name = "item_Supplier",
             joinColumns = @JoinColumn(name = "id_item"),
             inverseJoinColumns = @JoinColumn(name = "id_supplier")
     )
